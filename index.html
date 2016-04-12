@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset='utf-8'>
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="vendor/styles/normalize.css">
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/modules.css">
+  </head>
+  <body>
+    <main>
+      <header>
+        <h1>Drew's Portfolio Page</h1>
+        <p>A young developer looking to share his work.</p>
+      </header>
+      <nav>
+        <ul>
+          <li>Projects</li>
+          <li>About Drew(coming soon!)</li>
+          <li><a href="https://github.com/drewferris" target="_blank">Github</a></li>
+          <li><a href="https://twitter.com/ddf8029" target="_blank">Twitter</a></li>
+        </ul>
+      </nav>
+      <section id="projects">
+        <article class="template" data-category="personal-work">
+          <header>
+            <h1>Title</h1>
+            <div class="byline">
+              By<address>Author Name</address>
+              launched<time pubdate datetime="2000-01-01">Publish Time</time>
+            </div>
+          </header>
+          <section class="project-body"></section>
+        </article>
+      </section>
+    </main>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <script src="scripts/projects.js"></script>
+    <script src="scripts/portfolios.js"></script>
+  </body>
+</html>
