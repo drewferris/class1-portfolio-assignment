@@ -13,6 +13,7 @@ Project.prototype.toHtml = function(){
   $newProject.removeClass('template');
 
   $newProject.attr('data-category', this.category);
+  $newProject.attr('data-author', this.author);
   $newProject.find('address').html(this.author);
   $newProject.find('h1').html(this.title);
   $newProject.find('a').attr('href', this.projectLink);
