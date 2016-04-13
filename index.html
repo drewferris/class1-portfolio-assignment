@@ -4,25 +4,40 @@
     <meta charset='utf-8'>
     <title>Portfolio</title>
     <link rel="stylesheet" href="vendor/styles/normalize.css">
+    <link rel="stylesheet" href="styles/icons.css">
     <link rel="stylesheet" href="styles/base.css">
     <link rel="stylesheet" href="styles/modules.css">
   </head>
   <body>
     <main>
-      <header>
+      <header class="site-header">
         <h1>Drew's Portfolio Page</h1>
         <p>A young developer looking to share his work.</p>
       </header>
-      <nav>
+      <nav class="main-nav">
         <ul>
-          <li>Projects</li>
-          <li>About Drew(coming soon!)</li>
-          <li><a href="https://github.com/drewferris" target="_blank">Github</a></li>
-          <li><a href="https://twitter.com/ddf8029" target="_blank">Twitter</a></li>
+          <li class="tab icon-home" data-content="projects"><a href="#">Home</a></li>
+          <li class="tab icon-happy" data-content="about"><a href="#">About Drew</a></li>
+          <li class="tab icon-twitter3"><a href="https://github.com/drewferris" target="_blank">Github</a></li>
+          <li class="tab icon-github"><a href="https://twitter.com/ddf8029" target="_blank">Twitter</a></li>
         </ul>
       </nav>
-      <section id="projects">
-        <article class="template" data-category="personal-work">
+      <section id="projects" class="tab-content">
+        <div>
+          <ul id="filters">
+            <li>
+              <select id="author-filter">
+                <option value="">--Filter by Authors--</option>
+              </select>
+            </li>
+            <li>
+              <select id="category-filter">
+                <option value="">--Filter by Categories--</option>
+              </select>
+            </li>
+          </ul>
+        </div>
+        <article class="template template" data-category="info-category">
           <header>
             <h1>Title</h1>
             <div class="byline">
@@ -30,14 +45,32 @@
               launched <time pubdate datetime="2000-01-01">Publish Time</time>
             </div>
           </header>
+          <section class="project-body"></section>
+          <section class='url'>
+            <a href="#" class="read-on">Read on &rarr;</a>
+          </section>
           <section>
             <p><a href="">Project Link</a><p>
           </section>
+
         </article>
+      </section>
+      <section id="about" class="tab-content">
+        <header>
+          About Drew
+        </header>
+        <section>
+          <h1>Some of my interests:</h1>
+          <ul>
+            <li>Coding</li>
+            <li>Soccer</li>
+            <li>Russian Language</li>
+          </ul>
+        </section>
       </section>
     </main>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
     <script src="scripts/projects.js"></script>
-    <script src="scripts/portfolio.js"></script>
+    <script src="scripts/portfolioView1.js"></script><script src="scripts/portfolio.js"></script>
   </body>
 </html>

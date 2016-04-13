@@ -6,12 +6,14 @@ function Project (opts) {
   this.category = opts.category;
   this.launchedOn = opts.launchedOn;
   this.projectLink = opts.projectLink;
+  this.body = opts.body;
 };
 
 Project.prototype.toHtml = function(){
   var $newProject = $('article.template').clone();
   $newProject.removeClass('template');
 
+  $newProject.find('.project-body').html(this.body);
   $newProject.attr('data-category', this.category);
   $newProject.attr('data-author', this.author);
   $newProject.find('address').html(this.author);
