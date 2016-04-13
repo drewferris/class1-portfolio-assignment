@@ -1,14 +1,35 @@
 /* TODO: Give the site header a nice background color, from your selected color scheme. */
 
-.site-header {
-  padding: .1em;
-  background-color: #AA8439;
+/*.site-header {
+  background: #FFEAAA;
+}*/
+
+.heading-group-h1 {
+  float: left;
+  padding: 0 0 .2em 1em;
+}
+
+.icon-menu {
+  font-size: 2em;
+  float: right;
+  margin-top: 0.67em;
+  margin-right: 0.67em;
 }
 
 .main-nav {
-  padding: 0;
+  padding: 0.1em;
+}
+
+.main-nav ul {
+  display: none;
   list-style: none;
+  padding: 0;
   clear: both;
+}
+/*clear both makes its so it clears the elements that are floating right or left*/
+
+.main-nav:hover ul {
+  display: block;
 }
 
 .main-nav li {
@@ -18,28 +39,13 @@
   border-bottom: 1px solid #ccc;
 }
 
-/* TODO: Style the filters so they look good on small screens:
-    Use the full width, and remove the list bullet. */
-
 #filters {
   padding: 0;
-
-}
-
-select {
-  width: 100%;
-}
-
-#filters select {
-
+  list-style: none;
 }
 
 .template {
   display: none;
-}
-
-.byline {
-  color: #777;
 }
 
 .byline a {
@@ -47,14 +53,16 @@ select {
   text-decoration: none;
 }
 
-.pull-left {
-  float: left;
-}
-
-.pull-right {
-  float: right;
-}
-
-ul {
-  list-style: none;
+@media only screen and (min-width: 640px) {
+  .icon-menu {
+    display: none;
+  }
+  .main-nav ul {
+    display: block;
+    width: 100%;
+  }
+  .main-nav li {
+    display: inline-block;
+    padding: 0.5em 0.8em;
+  }
 }

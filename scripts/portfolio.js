@@ -19,9 +19,10 @@ Project.prototype.toHtml = function(){
   $newProject.find('address').html(this.author);
   $newProject.find('h1').html(this.title);
   $newProject.find('a').attr('href', this.projectLink);
+  $newProject.find('time[pubdate]').attr('datetime', this.launchedOn);
   $newProject.find('time[pubdate]').attr('title', this.launchedOn);
 
-  $newProject.find('time').html('about ' + parseInt((new Date() - new Date(this.launchedOn)) / 60 / 60 / 24 / 1000) + 'days ago');
+  $newProject.find('time').html('about ' + parseInt((new Date() - new Date(this.launchedOn))/60/60/24/1000)+ ' days ago');
 
   $newProject.append('<hr>');
 
