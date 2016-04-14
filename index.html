@@ -9,12 +9,35 @@
     <link rel="stylesheet" href="styles/base.css">
     <link rel="stylesheet" href="styles/layout.css">
     <link rel="stylesheet" href="styles/modules.css">
+    <script id="projects-template" type="text/x-handlebars-template">
+        <article class="clearfix" data-author="{{author}}" data-category="{{category}}">
+          <header>
+            <h1>{{title}}</h1>
+            <div class="byline">
+              By <address>{{author}}</address>
+              {{launchedOn}}
+            </div>
+          </header>
+          <section class="project-body">{{{body}}}</section>
+          <section class="url"><a href="#" class="read-on">Read on &rarr;</a>
+          </section>
+          <section>
+            <p><a href="{{projectLink}}">Project Link</a><p>
+          </section>
+        </article>
+    </script>
+    <script id="author-template" type="text/x-handlebars-template">
+      <option value="{{author}}">{{author}}</option>
+    </script>
+    <script id="category-template" type="text/x-handlebars-template">
+      <option value="{{category}}">{{category}}</option>
+    </script>
   </head>
   <body>
       <header class="site-header clear-fix">
         <section class="heading-group-h1">
-        <h1>Drew's Portfolio Page</h1>
-        <h2>A young developer looking to share his work.</h2>
+          <h1>Drew's Portfolio Page</h1>
+          <h2>A young developer looking to share his work.</h2>
         </section>
         <nav class="main-nav">
           <div class="icon-menu">
@@ -43,7 +66,7 @@
               </li>
             </ul>
           </div>
-          <article class="template template" data-category="info-category">
+          <!-- <article class="template template" data-category="info-category">
             <header>
               <h1>Title</h1>
               <div class="byline">
@@ -55,11 +78,7 @@
             <section class='url'>
               <a href="#" class="read-on">Read on &rarr;</a>
             </section>
-            <section>
-              <p><a href="">Project Link</a><p>
-            </section>
-
-          </article>
+          </article> -->
         </section>
         <section id="about" class="tab-content">
           <header>
@@ -79,6 +98,8 @@
       &copy; Drew Ferris
     </footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.4/handlebars.js"></script>
     <script src="scripts/projects.js"></script>
     <script src="scripts/portfolioView1.js"></script><script src="scripts/portfolio.js"></script>
   </body>
