@@ -36,7 +36,8 @@ projectView.handleCategoryFilter = function() {
       $('article').hide();
       $('article').filter('article[data-category = "' + $(this).val() + '"]').fadeIn(600);
     } else {
-      $('article').filter(!'article[class="template"]').fadeIn(600);
+      $('article').fadeIn();
+      $('article.template').hide();
     }
     $('#author-filter').val('');
   });
