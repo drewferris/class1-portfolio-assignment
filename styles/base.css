@@ -2,11 +2,12 @@ body {
   padding: 1em;
   line-height: 1.5;
   color: #313131;
+  width: 98%;
 }
 
 main {
   margin: auto;
-  width: 80%;
+  width: 98%;
 }
 
 address {
@@ -32,9 +33,18 @@ a, a:link, a:active {
 }
 
 a:hover, a:focus {
-  color: #29506D;
+  color: #68FF66;
 }
 
 a:visited {
 
+}
+
+ul {
+  text-align: center;
+  padding: 0;
+}
+
+header {
+  width: 98%;
 }
