@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset='utf-8'>
+    <title>Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="vendor/styles/normalize.css">
+    <link rel="stylesheet" href="styles/icons.css">
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/layout.css">
+    <link rel="stylesheet" href="styles/modules.css">
+    <script id="projects-template" type="text/x-handlebars-template">
+        <article class="clearfix" data-author="{{author}}" data-category="{{category}}">
+          <header>
+            <h1>{{title}}</h1>
+            <div class="byline">
+              By <address>{{author}}</address>
+              {{launchedOn}}
+            </div>
+          </header>
+          <section class="project-body">{{{body}}}</section>
+          <section class="url"><a href="#" class="read-on">Read on &rarr;</a>
+          </section>
+          <section>
+            <p><a href="{{projectLink}}">Project Link</a><p>
+          </section>
+        </article>
+    </script>
+    <script id="author-template" type="text/x-handlebars-template">
+      <option value="{{author}}">{{author}}</option>
+    </script>
+    <script id="category-template" type="text/x-handlebars-template">
+      <option value="{{category}}">{{category}}</option>
+    </script>
+  </head>
+  <body>
+      <header class="site-header clear-fix">
+        <section class="heading-group-h1">
+          <h1>Drew's Portfolio Page</h1>
+          <h2>A young developer looking to share his work.</h2>
+        </section>
+        <nav class="main-nav">
+          <div class="icon-menu">
+          </div>
+          <ul>
+            <li class="tab icon-home" data-content="projects"><a href="#">Home</a></li>
+            <li class="tab icon-address-book" data-content="about"><a href="#">About Drew</a></li>
+            <li class="tab icon-github"><a href="https://github.com/drewferris" target="_blank">Github</a></li>
+            <li class="tab icon-twitter"><a href="https://twitter.com/ddf8029" target="_blank">Twitter</a></li>
+          </ul>
+        </nav>
+      </header>
+      <main>
+        <section id="projects" class="tab-content">
+          <div>
+            <ul id="filters">
+              <li>
+                <select id="author-filter">
+                  <option value="">--Filter by Authors--</option>
+                </select>
+              </li>
+              <li>
+                <select id="category-filter">
+                  <option value="">--Filter by Categories--</option>
+                </select>
+              </li>
+            </ul>
+          </div>
+          <!-- <article class="template template" data-category="info-category">
+            <header>
+              <h1>Title</h1>
+              <div class="byline">
+                By <address>Author Name</address>
+                launched <time pubdate datetime="2000-01-01">Publish Time</time>
+              </div>
+            </header>
+            <section class="project-body"></section>
+            <section class='url'>
+              <a href="#" class="read-on">Read on &rarr;</a>
+            </section>
+          </article> -->
+        </section>
+        <section id="about" class="tab-content">
+          <header>
+            About Drew
+          </header>
+          <section>
+            <h1>Some of my interests:</h1>
+            <ul>
+              <li>Coding</li>
+              <li>Soccer</li>
+              <li>Russian Language</li>
+              <li>SHANNON</li>
+            </ul>
+          </section>
+        </section>
+    </main>
+    <footer>
+      &copy; Drew Ferris
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.4/handlebars.js"></script>
+    <script src="scripts/projects.js"></script>
+    <script src="scripts/portfolioView1.js"></script><script src="scripts/portfolio.js"></script>
+  </body>
+</html>

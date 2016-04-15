@@ -1,0 +1,68 @@
+/* TODO: Give the site header a nice background color, from your selected color scheme. */
+
+/*.site-header {
+  background: #FFEAAA;
+}*/
+
+.heading-group-h1 {
+  float: left;
+  padding: 0 0 .2em 1em;
+}
+
+.icon-menu {
+  font-size: 2em;
+  float: right;
+  margin-top: 0.67em;
+  margin-right: 0.67em;
+}
+
+.main-nav {
+  padding: 0.1em;
+}
+
+.main-nav ul {
+  display: none;
+  list-style: none;
+  padding: 0;
+  clear: both;
+}
+/*clear both makes its so it clears the elements that are floating right or left*/
+
+.main-nav:hover ul {
+  display: block;
+}
+
+.main-nav li {
+  margin-right: .4em;
+  font-size: 1.5em;
+  padding: .5em .2em;
+  border-bottom: 1px solid #ccc;
+}
+
+#filters {
+  padding: 0;
+  list-style: none;
+}
+
+.template {
+  display: none;
+}
+
+.byline a {
+  font-weight: bold;
+  text-decoration: none;
+}
+
+@media only screen and (min-width: 640px) {
+  .icon-menu {
+    display: none;
+  }
+  .main-nav ul {
+    display: block;
+    width: 100%;
+  }
+  .main-nav li {
+    display: inline-block;
+    padding: 0.5em 0.8em;
+  }
+}

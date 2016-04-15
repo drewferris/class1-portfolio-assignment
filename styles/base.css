@@ -1,0 +1,40 @@
+body {
+  padding: 1em;
+  line-height: 1.5;
+  color: #313131;
+}
+
+main {
+  margin: auto;
+  width: 80%;
+}
+
+address {
+  display: inline-block;
+}
+
+hr {
+  margin: 1em;
+  width: 80%;
+}
+
+img {
+  max-width: 100%;
+}
+
+p {
+  font-size: 1em;
+}
+
+a, a:link, a:active {
+  text-decoration: none;
+  color: #777;
+}
+
+a:hover, a:focus {
+  color: #29506D;
+}
+
+a:visited {
+
+}
