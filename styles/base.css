@@ -1,8 +1,10 @@
 body {
   padding: 1em;
   line-height: 1.5;
-  color: #313131;
+  color: #2C6F7F;
   width: 98%;
+  background-color: #3584B2;
+  }
 }
 
 main {
@@ -29,11 +31,11 @@ p {
 
 a, a:link, a:active {
   text-decoration: none;
-  color: #777;
+  color: #59737F;
 }
 
 a:hover, a:focus {
-  color: #68FF66;
+  color: #FFF565;
 }
 
 a:visited {

@@ -10,12 +10,13 @@
     <link rel="stylesheet" href="styles/layout.css">
     <link rel="stylesheet" href="styles/modules.css">
     <script id="projects-template" type="text/x-handlebars-template">
-        <article class="clearfix" data-author="{{author}}" data-category="{{category}}">
+        <article class="clearfix project-box" data-author="{{author}}" data-category="{{category}}">
           <header>
             <h1>{{title}}</h1>
             <div class="byline">
               By <address>{{author}}</address>
-              {{launchedOn}}
+              <br>
+              Launched On: {{launchedOn}}
             </div>
           </header>
           <section class="project-body">{{{body}}}</section>
@@ -48,8 +49,8 @@
           </ul>
         </nav>
         <nav class="main-nav">
-          <div class="icon-menu">
-          </div>
+          <!-- <div class="icon-menu">
+          </div> -->
           <ul>
             <a href="#"><li class="tab icon-home" data-content="projects">Home</li></a>
             <a href="#"><li class="tab icon-address-book" data-content="about">About</li></a>
