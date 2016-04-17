@@ -8,6 +8,10 @@
   list-style: none;
 }
 
+.clearfix {
+  text-align: center;
+}
+
 .social {
   position: absolute;
   right: 0;
@@ -20,6 +24,10 @@
   width: 98%;
   text-align: center;
   position: relative;
+}
+
+nav.social {
+  font-size: 5vmin;
 }
 
 .icon-menu {
