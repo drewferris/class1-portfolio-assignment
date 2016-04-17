@@ -2,12 +2,13 @@
   float:left;
 }
 
+
+
 .pull-right {
   float: right;
 }
 
 .about {
-  height: 250px;
   width: 250px;
 }
 
@@ -18,9 +19,9 @@
 }
 /*::after puts something on the direct parent child after it here .clearfix*/
 
-.heading-group-h1 {
+/*.heading-group-h1 {
   max-width: 80%;
-}
+}*/
 
 #filters select {
   width: 90%;

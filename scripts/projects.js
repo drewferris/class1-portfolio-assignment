@@ -1,26 +1,26 @@
 var rawData = [
   {
-    title: 'About Me',
-    category: 'info',
+    title: 'Bus Mall',
+    category: 'interactive',
     author: 'Drew Ferris',
-    launchedOn: '2016-04-21',
-    projectLink:'file:///Users/drewferris/cf/201/about-me/index.html',
-    body: '<p>This was my first project.</p><p>It is pretty simple.</p><p>I know the CSS is bad.</p><p>But it also had a guessing game.</p><img src="img/about.png" class="about">'
+    launchedOn: '2016-03-12',
+    projectLink:'file:///Users/drewferris/cf/201/bus-mall/index.html',
+    body: '<img src="img/busmall.png" class="about"><p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p><p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p><p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.</p><p>The Big Oxmox advised her not to do so, because there were thousands of bad Commas, wild Question Marks and devious Semikoli, but the Little Blind Text didn’t listen. She packed her seven versalia, put her initial into the belt and made herself on the way.</p><p>When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane. Pityful a rethoric question ran over her cheek, then</p>'
   },
   {
     title: 'Pizza-Odyssey',
     category: 'pizza',
     author: 'Pizza Man',
-    launchedOn: '2016-04-21',
+    launchedOn: '2016-03-21',
     projectLink:'file:///Users/drewferris/cf/201/pizza-odyssey/sales-data.html',
-    body: '<p>This was my second project.</p><p>It is a little bit better</p><p>Check out all the pizza data.</p><p>You can add more data if you like.</p><img src="img/pizza.png" class="about">'
+    body: '<img src="img/pizza.png" class="about"><p>Li Europan lingues es membres del sam familie. Lor separat existentie es un myth. Por scientie, musica, sport etc, litot Europa usa li sam vocabular.</p><p>Li lingues differe solmen in li grammatica, li pronunciation e li plu commun vocabules. Omnicos directe al desirabilite de un nov lingua franca: On refusa continuar payar custosi traductores.</p><p>At solmen va esser necessi far uniform grammatica, pronunciation e plu sommun paroles. Ma quande lingues coalesce, li grammatica del resultant lingue es plu simplic e regulari quam ti del coalescent lingues.</p><p>Li nov lingua franca va esser plu simplic e regulari quam li existent Europan lingues. It va esser tam simplic quam Occidental in fact, it va esser Occidental. A un Angleso it va semblar un simplificat Angles, quam un skeptic Cambridge amico dit me que Occidental es.</p><p>Li Europan lingues es membres del sam familie. Lor separat existentie es un myth. Por scientie, musica, sport etc, litot Europa usa li sam vocabular. Li lingues differe solmen in li grammatica, li pronunciation e li plu commun vocabules. Omnicos directe al desirabilite de un nov lingua franca: On refusa continuar payar custosi traductores. At solmen va esser necessi far uniform grammatica, pronunciation e plu sommun paroles.</p>'
   },
   {
     title: 'Hacker Hangout',
     category: 'hangout',
     author: 'Hacker Group',
-    launchedOn: '2016-04-21',
+    launchedOn: '2016-03-28',
     projectLink:'http://ckperez.github.io/hackerhangout/',
-    body: '<p>This is the most recent project I took part in.</p><p>It is badass huh?</p><p>My group was pretty badass</p><p>Find a Hacky place!</p><img src="img/hack.png" class="about">'
+    body: '<img src="img/hack.png" class="about"><p>This is the most recent project I took part in.</p><p>It is badass huh?</p><p>My group was pretty badass</p><p>Find a Hacky place!</p>'
   }
 ];
