@@ -39,18 +39,19 @@ rawData.forEach(function(ele) {
 });
 
 projects.forEach(function(a){
-  $('#projects').append(a.toHtml('projects'));
-  $('#author-filter').append(a.toHtml('author'));
-  if (categories.indexOf(a.category) === -1) {
-    $('#category-filter').append(a.toHtml('category'));
-    categories.push(a.category);
-  }
+  $('#projects').append(a.toHtml());
+});
+//   $('#author-filter').append(a.toHtml('author'));
+//   if (categories.indexOf(a.category) === -1) {
+//     $('#category-filter').append(a.toHtml('category'));
+//     categories.push(a.category);
+//   }
+// });
+
+projects.forEach(function(a){
+  $('#author-filter').append(a.toAuthors());
 });
 
-// projects.forEach(function(a){
-//   $('#author-filter').append(a.toAuthors());
-// });
-//
-// projects.forEach(function(a){
-//   $('#category-filter').append(a.toCategories());
-// });
+projects.forEach(function(a){
+  $('#category-filter').append(a.toCategories());
+});

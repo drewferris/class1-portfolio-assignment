@@ -6,13 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="vendor/styles/normalize.css">
     <link rel="stylesheet" href="styles/icons.css">
+    <link href='https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz|Lobster|Josefin+Sans' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="styles/base.css">
     <link rel="stylesheet" href="styles/layout.css">
     <link rel="stylesheet" href="styles/modules.css">
     <script id="projects-template" type="text/x-handlebars-template">
         <article class="clearfix project-box" data-author="{{author}}" data-category="{{category}}">
           <header>
-            <h1>{{title}}</h1>
+            <h1 class="project-header">{{title}}</h1>
             <div class="byline">
               By <address>{{author}}</address>
               <br>
@@ -37,8 +38,8 @@
   <body>
       <header class="site-header clear-fix">
         <section class="heading-group-h1">
-          <h1>Drew's Portfolio Page</h1>
-          <h2>A young developer looking to share his work.</h2>
+          <h1 class="header">Drew's Portfolio Page</h1>
+          <h2 class="youngdev">A young developer looking to share his work.</h2>
         </section>
         <nav class="social">
           <ul>
@@ -60,7 +61,7 @@
       <main>
         <section id="projects" class="tab-content">
           <div>
-            <ul id="filters">
+            <ul id="filters" class="styled-select">
               <li>
                 <select id="author-filter">
                   <option value="">--Filter by Authors--</option>
@@ -88,11 +89,8 @@
           </article> -->
         </section>
         <section id="about" class="tab-content">
-          <header>
-            About Drew
-          </header>
           <section>
-            <h1>Some of my interests:</h1>
+            <h1 class="header">Some of my interests:</h1>
             <ul>
               <li>Coding</li>
               <li>Soccer</li>

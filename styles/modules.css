@@ -18,6 +18,10 @@
   border: 3px solid #51A4CC;
   margin-top: 5px;
   text-align: center;
+  width: 70%;
+  margin-left: 15%;
+  margin-right: 15%;
+  margin-bottom: 5px;
 }
 
 #about li {
@@ -31,7 +35,16 @@
   width: 70%;
   margin-left: 15%;
   margin-right: 15%;
+  font-family: 'Josefin Sans', sans-serif;
 }
+.youngdev {
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+.project-header {
+  font-family: 'Lobster', cursive;
+}
+
 .social {
   position: absolute;
   right: 0;
@@ -76,12 +89,21 @@
   margin-right: .4em;
   font-size: 1.5em;
   padding: .5em .2em;
+  font-family: 'Lobster', cursive;
   /*border-bottom: 1px solid #ccc;*/
+}
+
+#about li {
+  font-family: 'Josefin Sans', sans-serif;
 }
 
 #filters {
   padding: 0;
   list-style: none;
+}
+
+.header {
+  font-family: 'Lobster', cursive;
 }
 
 .template {
@@ -92,6 +114,7 @@
   font-weight: bold;
   text-decoration: none;
 }
+
 
 @media only screen and (min-width: 640px) {
   .icon-menu {
