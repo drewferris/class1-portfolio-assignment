@@ -52,12 +52,22 @@ projectView.handleMainNav = function() {
 };
 
 projectView.setTeasers = function() {
-  $('.project-body *:nth-of-type(n+2)').hide();
-  $('.url').on('click', 'a', function(e) {
+  var $readMoreParagraphs = $('.project-body *:nth-of-type(n+2)');
+  $readMoreParagraphs.hide();
+  $('a.read-less').hide();
+  $('a.read-on').on('click', function(e) {
     e.preventDefault();
+    $(this).prev().children().fadeIn();
     $(this).hide();
-    $('.project-body *:nth-of-type(n+2)').fadeIn();
+    $(this).next().show();
   });
+  $('a.read-less').on('click', function(e) {
+    e.preventDefault();
+    $readMoreParagraphs.fadeOut();
+    $(this).prev().show();
+    $(this).hide();
+  });
+
 };
 
 $(function(){
