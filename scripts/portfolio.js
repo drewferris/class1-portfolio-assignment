@@ -9,6 +9,12 @@ function Project (opts) {
   this.body = opts.body;
 };
 
+// function Projects(projects) {
+//   for (key in projects) {
+//     this[key] = projects[key];
+//   };
+// };
+
 Project.prototype.toAuthors = function () {
   var $source = $('#author-template').html();
   var template = Handlebars.compile($source);

@@ -1,7 +1,7 @@
-var rawData = [
+[
   {
-    title: 'Bus Mall',
-    category: 'interactive',
+    "title": 'Bus Mall',
+    "category": 'interactive',
     author: 'Drew Ferris',
     launchedOn: '2016-03-12',
     projectLink:'file:///Users/drewferris/cf/201/bus-mall/index.html',
