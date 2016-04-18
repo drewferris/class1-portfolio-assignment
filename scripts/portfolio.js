@@ -1,4 +1,6 @@
-var projects= [], categories = [];
+var categories = [];
+
+
 
 function Project (opts) {
   this.title = opts.title;
@@ -9,44 +11,48 @@ function Project (opts) {
   this.body = opts.body;
 };
 
-// function Projects(projects) {
-//   for (key in projects) {
-//     this[key] = projects[key];
-//   };
+
+Project.all = [];
+
+var etag = '';
+
+// Project.prototype.toAuthors = function () {
+//   var $source = $('#author-template').html();
+//   var template = Handlebars.compile($source);
+//   return template(this);
 // };
 
-Project.prototype.toAuthors = function () {
-  var $source = $('#author-template').html();
-  var template = Handlebars.compile($source);
-  return template(this);
-};
+// Project.prototype.toCategories = function () {
+//   var $source = $('#category-template').html();
+//   var template = Handlebars.compile($source);
+//   return template(this);
+// };
 
-Project.prototype.toCategories = function () {
-  var $source = $('#category-template').html();
-  var template = Handlebars.compile($source);
-  return template(this);
-};
 
 Project.prototype.toHtml = function(){
   // var $source = $('#' + templateId + '-template').html();
-  var $source = $('#projects-template').html();
-  var template = Handlebars.compile($source);
+  var template = Handlebars.compile($('#projects-template').text());
+
   this.daysAgo = parseInt((new Date() - new Date(this.launchedOn))/60/60/24/1000);
   this.publishStatus = this.launchedOn ? 'launched ' + this.daysAgo + ' days ago' : '(draft)';
+  this.body = marked(this.body);
   return template(this);
 };
 
-rawData.sort(function(a,b) {
-  return (new Date(b.launchedOn)) - (new Date(a.launchedOn));
-});
+Project.loadAll = function(rawData) {
 
-rawData.forEach(function(ele) {
-  projects.push(new Project(ele));
-});
+  rawData.sort(function(a,b) {
+    return (new Date(b.launchedOn)) - (new Date(a.launchedOn));
+  });
 
-projects.forEach(function(a){
-  $('#projects').append(a.toHtml());
-});
+  rawData.forEach(function(ele) {
+    Project.all.push(new Project(ele));
+  });
+
+  // projects.forEach(function(a){
+  //   $('#projects').append(a.toHtml());
+  // });
+};
 //   $('#author-filter').append(a.toHtml('author'));
 //   if (categories.indexOf(a.category) === -1) {
 //     $('#category-filter').append(a.toHtml('category'));
@@ -54,10 +60,44 @@ projects.forEach(function(a){
 //   }
 // });
 
-projects.forEach(function(a){
-  $('#author-filter').append(a.toAuthors());
-});
+// projects.forEach(function(a){
+//   $('#author-filter').append(a.toAuthors());
+// });
+//
+// projects.forEach(function(a){
+//   $('#category-filter').append(a.toCategories());
+// });
+Project.fetchAll = function() {
+  if (localStorage.projects) {
+    alert('blas');
+    $.ajax({
+      type: 'HEAD',
+      url: 'scripts/projects.json',
+      success: function(data, message, xhr) {
+        var etag = (xhr.getResponseHeader('ETag'));
+        if (localStorage.etag === etag) {
+          Project.loadAll(JSON.parse(localStorage.projects));
+          projectView.initIndexPage();
+        } else {
+          Project.jsonfetch();
+        }
+      }
+    });
+  } else {
+    Project.jsonfetch();
+  }
+};
 
-projects.forEach(function(a){
-  $('#category-filter').append(a.toCategories());
-});
+Project.jsonfetch = function() {
+  $.ajax({
+    type: 'GET',
+    url: 'scripts/projects.json',
+    success: function(data, message, xhr) {
+      Project.loadAll(data);
+      localStorage.setItem('projects', JSON.stringify(data));
+      projectView.initIndexPage();
+      etag = (xhr.getResponseHeader('ETag'));
+      localStorage.setItem('etag', etag);
+    }
+  });
+};

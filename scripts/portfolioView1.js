@@ -70,10 +70,13 @@ projectView.setTeasers = function() {
 
 };
 
-$(function(){
+projectView.initIndexPage = function() {
+  Project.all.forEach(function(a) {
+    $('#projects').append(a.toHtml());
+  });
   // projectView.populateFilters();
   projectView.handleAuthorFilter();
   projectView.handleCategoryFilter();
   projectView.handleMainNav();
   projectView.setTeasers();
-});
+};
