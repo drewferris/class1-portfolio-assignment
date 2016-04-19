@@ -35,17 +35,17 @@ Project.prototype.toHtml = function(){
 
   this.daysAgo = parseInt((new Date() - new Date(this.launchedOn))/60/60/24/1000);
   this.publishStatus = this.launchedOn ? 'launched ' + this.daysAgo + ' days ago' : '(draft)';
-  this.body = marked(this.body);
   return template(this);
 };
 
-Project.loadAll = function(rawData) {
+Project.loadAll = function(dataPassedIn) {
 
-  rawData.sort(function(a,b) {
+  dataPassedIn.sort(function(a, b) {
+    console.log('here');
     return (new Date(b.launchedOn)) - (new Date(a.launchedOn));
   });
 
-  rawData.forEach(function(ele) {
+  dataPassedIn.forEach(function(ele) {
     Project.all.push(new Project(ele));
   });
 
@@ -69,10 +69,11 @@ Project.loadAll = function(rawData) {
 // });
 Project.fetchAll = function() {
   if (localStorage.projects) {
+
     alert('blas');
     $.ajax({
       type: 'HEAD',
-      url: 'scripts/projects.json',
+      url: 'data/projects.json',
       success: function(data, message, xhr) {
         var etag = (xhr.getResponseHeader('ETag'));
         if (localStorage.etag === etag) {
@@ -89,15 +90,21 @@ Project.fetchAll = function() {
 };
 
 Project.jsonfetch = function() {
-  $.ajax({
+  $.ajax ({
     type: 'GET',
-    url: 'scripts/projects.json',
+    dataType: 'json',
+    url: 'data/projects.json',
     success: function(data, message, xhr) {
+
+
       Project.loadAll(data);
       localStorage.setItem('projects', JSON.stringify(data));
       projectView.initIndexPage();
       etag = (xhr.getResponseHeader('ETag'));
       localStorage.setItem('etag', etag);
+    },
+    error: function(data, message, xhr){
+      console.log('url');
     }
   });
 };
