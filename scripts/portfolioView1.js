@@ -1,21 +1,21 @@
 var projectView = {};
 
-// projectView.populateFilters = function()
-// {
-//   $('article').each(function() {
-//     if (!$(this).hasClass('template')) {
-//       var val = $(this).find('address').text();
-//       var optionTag = '<option value="' + val + '">' + val + '</option>';
-//       $('#author-filter').append(optionTag);
-//
-//       val = $(this).attr('data-category');
-//       optionTag = '<option value="' + val + '">' + val + '</option>';
-//       if ($('#category-filter option[value="' + val + '"]').length === 0) {
-//         $('#category-filter').append(optionTag);
-//       }
-//     }
-//   });
-// };
+projectView.populateFilters = function()
+{
+  $('article').each(function() {
+    if (!$(this).hasClass('template')) {
+      var val = $(this).find('address').text();
+      var optionTag = '<option value="' + val + '">' + val + '</option>';
+      $('#author-filter').append(optionTag);
+
+      val = $(this).attr('data-category');
+      optionTag = '<option value="' + val + '">' + val + '</option>';
+      if ($('#category-filter option[value="' + val + '"]').length === 0) {
+        $('#category-filter').append(optionTag);
+      }
+    }
+  });
+};
 
 projectView.handleAuthorFilter = function() {
   $('#author-filter').on('change', function() {
@@ -70,10 +70,13 @@ projectView.setTeasers = function() {
 
 };
 
-$(function(){
-  // projectView.populateFilters();
+projectView.initIndexPage = function() {
+  Project.all.forEach(function(a) {
+    $('#projects').append(a.toHtml());
+  });
+  projectView.populateFilters();
   projectView.handleAuthorFilter();
   projectView.handleCategoryFilter();
   projectView.handleMainNav();
   projectView.setTeasers();
-});
+};
