@@ -28,7 +28,7 @@
   list-style: none;
 }
 
-.project-box {
+.project-box, .footer-stats {
   background: #89C5E8;
   border: 3px solid #51A4CC;
   margin-bottom: 5px;
@@ -41,7 +41,7 @@
   font-family: 'Josefin Sans', sans-serif;
 }
 
-.project-header {
+.project-header, .stat-header {
   font-family: 'Lobster', cursive;
 }
 
