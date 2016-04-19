@@ -53,11 +53,11 @@ Project.loadAll = function(dataPassedIn) {
   //   $('#projects').append(a.toHtml());
   // });
 };
-//   $('#author-filter').append(a.toHtml('author'));
-//   if (categories.indexOf(a.category) === -1) {
-//     $('#category-filter').append(a.toHtml('category'));
-//     categories.push(a.category);
-//   }
+  // $('#author-filter').append(a.toHtml('author'));
+  // if (categories.indexOf(a.category) === -1) {
+  //   $('#category-filter').append(a.toHtml('category'));
+  //   categories.push(a.category);
+  // }
 // });
 
 // projects.forEach(function(a){
@@ -69,8 +69,6 @@ Project.loadAll = function(dataPassedIn) {
 // });
 Project.fetchAll = function() {
   if (localStorage.projects) {
-
-    alert('blas');
     $.ajax({
       type: 'HEAD',
       url: 'data/projects.json',
