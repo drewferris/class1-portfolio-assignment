@@ -24,11 +24,11 @@
   margin-bottom: 5px;
 }
 
-#about li {
+.author-stats, #about li {
   list-style: none;
 }
 
-.project-box, .footer-stats {
+.project-box, #footer-stats {
   background: #89C5E8;
   border: 3px solid #51A4CC;
   margin-bottom: 5px;

@@ -79,4 +79,13 @@ projectView.initIndexPage = function() {
   projectView.handleCategoryFilter();
   projectView.handleMainNav();
   projectView.setTeasers();
+
+  var template = Handlebars.compile($('#author-template').text());
+
+  Project.numProjectsByAuthor().forEach(function(stat) {
+    $('.author-stats').append(template(stat));
+  });
+
+  $('#footer-stats .projects').text(Project.all.length);
+  $('#footer-stats .categories').text(Project.numCategoriesAll);
 };

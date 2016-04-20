@@ -69,3 +69,12 @@
 //     }
 //   });
 // };
+
+
+//FROM index
+//  <script id="author-template" type="text/x-handlebars-template">
+//   <option value="{{author}}">{{author}}</option>
+// </script>
+// <script id="category-template" type="text/x-handlebars-template">
+//   <option value="{{category}}">{{category}}</option>
+// </script>
