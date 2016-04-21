@@ -24,6 +24,7 @@
   margin-bottom: 5px;
 }
 
+
 .author-stats, #about li {
   list-style: none;
 }
@@ -78,7 +79,6 @@
   padding: 0;
   clear: both;
 }
-/*clear both makes its so it clears the elements that are floating right or left*/
 
 .main-nav:hover ul {
   display: block;
@@ -88,8 +88,6 @@
   margin-right: .4em;
   font-size: 1.5em;
   padding: .5em .2em;
-  font-family: 'Lobster', cursive;
-  /*border-bottom: 1px solid #ccc;*/
 }
 
 #about li {

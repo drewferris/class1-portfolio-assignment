@@ -32,13 +32,10 @@ a, a:link, a:active {
   color: #59737F;
 }
 
-a:hover, a:focus {
+a:hover {
   color: #FFF565;
 }
 
-a:visited {
-
-}
 
 ul {
   text-align: center;

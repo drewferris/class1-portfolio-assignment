@@ -2,18 +2,11 @@
 
   function Project (opts) {
     for (key in opts) this[key] = opts[key];
-    // this.title = opts.title;
-    // this.author = opts.author;
-    // this.category = opts.category;
-    // this.launchedOn = opts.launchedOn;
-    // this.projectLink = opts.projectLink;
-    // this.body = opts.body;
   };
 
   Project.all = [];
 
   Project.prototype.toHtml = function(){
-    // var $source = $('#' + templateId + '-template').html();
     var template = Handlebars.compile($('#projects-template').text());
 
     this.daysAgo = parseInt((new Date() - new Date(this.launchedOn))/60/60/24/1000);
@@ -63,13 +56,8 @@
   };
 
   Project.numCategoriesAll = function() {
-
-
     var categories = Project.all.map(function(project) {
-
       return project.categories;
-
-
     });
     return categories.length;
   };
