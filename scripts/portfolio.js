@@ -41,7 +41,7 @@
           var eTag = xhr.getResponseHeader('ETag');
           if(!localStorage.eTag || eTag !== localStorage.eTag) {
             localStorage.eTag = eTag;
-            Project.getAll();
+            Project.getAll(projectView.initIndexPage);
           } else {
             Project.loadAll(JSON.parse(localStorage.projects));
             callback();
@@ -49,15 +49,15 @@
         }
       });
     } else {
-      Project.getAll();
+      Project.getAll(projectView.initIndexPage);
     }
   };
 
-  Project.getAll = function() {
+  Project.getAll = function(callback) {
     $.getJSON('/data/projects.json', function(responseData) {
       Project.loadAll(responseData);
       localStorage.projects = JSON.stringify(responseData);
-      projectView.initIndexPage();
+      callback();
     });
   };
 
