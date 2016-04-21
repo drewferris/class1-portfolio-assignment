@@ -1,12 +1,13 @@
 (function(module) {
 
   function Project (opts) {
-    this.title = opts.title;
-    this.author = opts.author;
-    this.category = opts.category;
-    this.launchedOn = opts.launchedOn;
-    this.projectLink = opts.projectLink;
-    this.body = opts.body;
+    for (key in opts) this[key] = opts[key];
+    // this.title = opts.title;
+    // this.author = opts.author;
+    // this.category = opts.category;
+    // this.launchedOn = opts.launchedOn;
+    // this.projectLink = opts.projectLink;
+    // this.body = opts.body;
   };
 
   Project.all = [];
