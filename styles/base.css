@@ -2,14 +2,12 @@ body {
   padding: 1em;
   line-height: 1.5;
   color: #2C6F7F;
-  width: 98%;
   background-color: #3584B2;
   }
 }
 
 main {
   margin: auto;
-  width: 98%;
 }
 
 address {
@@ -34,21 +32,14 @@ a, a:link, a:active {
   color: #59737F;
 }
 
-a:hover, a:focus {
+a:hover {
   color: #FFF565;
 }
 
-a:visited {
-
-}
 
 ul {
   text-align: center;
   padding: 0;
-}
-
-header {
-  width: 98%;
 }
 
 footer {

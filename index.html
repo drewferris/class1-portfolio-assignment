@@ -21,19 +21,17 @@
             </div>
           </header>
           <section class="project-body">{{{body}}}</section>
-          <a href="#" class="read-on">Read on &rarr;</a>
-          <a href="#" class="read-less">Less</a>
+            <a href="#" class="read-on">Read on &rarr;</a>
+            <a href="#" class="read-less">Less</a>
           <section>
             <p><a href="{{projectLink}}">Project Link</a><p>
           </section>
         </article>
     </script>
     <script id="author-template" type="text/x-handlebars-template">
-      <option value="{{author}}">{{author}}</option>
-    </script>
-    <script id="category-template" type="text/x-handlebars-template">
-      <option value="{{category}}">{{category}}</option>
-    </script>
+      <li><strong>{{name}}</stron>:
+        {{numProjects}} project(s) launched</li>
+      </script>
   </head>
   <body>
       <header class="site-header clear-fix">
@@ -41,7 +39,7 @@
           <h1 class="header">Drew's Portfolio Page</h1>
           <h2 class="youngdev">A young developer looking to share his work.</h2>
         </section>
-        <nav class="social">
+        <nav class="social footer-social">
           <ul>
             <li class="tab"><a href="https://github.com/drewferris" class="icon-github icon" target="_blank"></a></li>
             <li class="tab"><a href="https://twitter.com/ddf8029" class="icon-twitter icon" target="_blank"></a></li>
@@ -50,8 +48,6 @@
           </ul>
         </nav>
         <nav class="main-nav">
-          <!-- <div class="icon-menu">
-          </div> -->
           <ul>
             <a href="#"><li class="tab icon-home" data-content="projects">Home</li></a>
             <a href="#"><li class="tab icon-address-book" data-content="about">About</li></a>
@@ -74,22 +70,8 @@
               </li>
             </ul>
           </div>
-          <!-- <article class="template template" data-category="info-category">
-            <header>
-              <h1>Title</h1>
-              <div class="byline">
-                By <address>Author Name</address>
-                launched <time pubdate datetime="2000-01-01">Publish Time</time>
-              </div>
-            </header>
-            <section class="project-body"></section>
-            <section class='url'>
-              <a href="#" class="read-on">Read on &rarr;</a>
-            </section>
-          </article> -->
         </section>
         <section id="about" class="tab-content">
-          <section>
             <h1 class="header">Some of my interests:</h1>
             <ul>
               <li>Coding</li>
@@ -97,11 +79,19 @@
               <li>Russian Language</li>
               <li>SHANNON</li>
             </ul>
-          </section>
         </section>
-    </main>
+      </main>
     <footer>
-      &copy; Drew Ferris
+      <section id="footer-stats">
+        <h1 class="stat-header">Project Stats</h1>
+          <dt>Total Projects:</dt> <dd class="projects"></dd>
+          <dt>Total Categories:</dt> <dd class="categories"></dd>
+        <h1 class="stat-header">Author Stats</h1>
+          <p><em>Details on the projects makers, and how many projects they contributed...</em>
+            <ul class="author-stats">
+            </ul>
+        &copy; Drew Ferris
+      </section>
     </footer>
     <script src="/vendor/scripts/jquery-2.1.4.js"></script>
     <script src="/vendor/scripts/handlebars.js"></script>
@@ -109,8 +99,7 @@
     <script src="scripts/portfolio.js"></script>
     <script src="scripts/portfolioView1.js"></script>
     <script>
-      Project.fetchAll();
-
+      Project.fetchAll(projectView.initIndexPage);
     </script>
   </body>
 </html>

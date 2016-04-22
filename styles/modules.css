@@ -24,11 +24,12 @@
   margin-bottom: 5px;
 }
 
-#about li {
+
+.author-stats, #about li {
   list-style: none;
 }
 
-.project-box {
+.project-box, #footer-stats {
   background: #89C5E8;
   border: 3px solid #51A4CC;
   margin-bottom: 5px;
@@ -41,22 +42,21 @@
   font-family: 'Josefin Sans', sans-serif;
 }
 
-.project-header {
+.project-header, .stat-header {
   font-family: 'Lobster', cursive;
 }
 
 .social {
   position: absolute;
-  right: 0;
+  left: 0;
   top: -4%;
   padding: 0;
   font-size: 5vmin;
-  margin-right: 0.5em;
+  margin-left: 0.5em;
 }
 
 .heading-group-h1 {
   padding: 0 0 .2em 1em;
-  width: 98%;
   text-align: center;
   position: relative;
 }
@@ -79,7 +79,6 @@
   padding: 0;
   clear: both;
 }
-/*clear both makes its so it clears the elements that are floating right or left*/
 
 .main-nav:hover ul {
   display: block;
@@ -89,8 +88,6 @@
   margin-right: .4em;
   font-size: 1.5em;
   padding: .5em .2em;
-  font-family: 'Lobster', cursive;
-  /*border-bottom: 1px solid #ccc;*/
 }
 
 #about li {
@@ -117,9 +114,6 @@
 
 
 @media only screen and (min-width: 640px) {
-  .icon-menu {
-    display: none;
-  }
   .main-nav ul {
     display: block;
     width: 100%;
@@ -127,5 +121,15 @@
   .main-nav li {
     display: inline-block;
     padding: 0.5em 0.8em;
+  }
+}
+
+@media only screen and (max-width: 640px) {
+  .social {
+    display: none;
+  }
+  .footer-social {
+    margin-left: 0;
+    display:inline;
   }
 }
