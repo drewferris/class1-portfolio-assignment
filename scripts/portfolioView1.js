@@ -32,13 +32,13 @@
     });
   };
 
-  projectView.handleMainNav = function() {
-    $('.main-nav').on('click', '.tab', function() {
-      $('.tab-content').hide();
-      $('#' + $(this).data('content')).fadeIn();
-    });
-    $('.main-nav .tab:first').click();
-  };
+  // projectView.handleMainNav = function() {
+  //   $('.main-nav').on('click', '.tab', function() {
+  //     $('.tab-content').hide();
+  //     $('#' + $(this).data('content')).fadeIn();
+  //   });
+  //   $('.main-nav .tab:first').click();
+  // };
 
   projectView.setTeasers = function() {
     var $readMoreParagraphs = $('.project-body *:nth-of-type(n+2)');
@@ -60,13 +60,15 @@
   };
 
   projectView.initIndexPage = function() {
-    Project.all.forEach(function(a) {
-      $('#projects').append(a.toHtml());
-    });
+    if($('#projects section').length === 0) {
+      Project.all.forEach(function(a) {
+        $('#projects').append(a.toHtml());
+      });
+    };
     projectView.populateFilters();
     projectView.handleFilter('author');
     projectView.handleFilter('category');
-    projectView.handleMainNav();
+    // projectView.handleMainNav();
     projectView.setTeasers();
 
     var template = Handlebars.compile($('#author-template').text());
