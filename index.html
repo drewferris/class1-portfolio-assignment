@@ -49,8 +49,9 @@
         </nav>
         <nav class="main-nav">
           <ul>
-            <a href="#"><li class="tab icon-home" data-content="projects">Home</li></a>
-            <a href="#"><li class="tab icon-address-book" data-content="about">About</li></a>
+            <li class="tab" data-content="projects"><a href="/" class="icon-home">Home</a></li>
+            <li class="tab" data-content="about"><a href="/about" class="icon-address-book">About</a></li>
+            <li class="tab" data-content="stats"><a href="/stats" class="icon-stats-bars">Stats</a></li>
           </ul>
         </nav>
       </header>
@@ -80,26 +81,30 @@
               <li>SHANNON</li>
             </ul>
         </section>
+        <section id="footer-stats">
+          <h1 class="stat-header">Project Stats</h1>
+            <dt>Total Projects:</dt> <dd class="projects"></dd>
+            <dt>Total Categories:</dt> <dd class="categories"></dd>
+          <h1 class="stat-header">Author Stats</h1>
+            <p><em>Details on the projects makers, and how many projects they contributed...</em>
+              <ul class="author-stats">
+              </ul>
+        </section>
       </main>
     <footer>
-      <section id="footer-stats">
-        <h1 class="stat-header">Project Stats</h1>
-          <dt>Total Projects:</dt> <dd class="projects"></dd>
-          <dt>Total Categories:</dt> <dd class="categories"></dd>
-        <h1 class="stat-header">Author Stats</h1>
-          <p><em>Details on the projects makers, and how many projects they contributed...</em>
-            <ul class="author-stats">
-            </ul>
+      <section>
         &copy; Drew Ferris
       </section>
     </footer>
     <script src="/vendor/scripts/jquery-2.1.4.js"></script>
     <script src="/vendor/scripts/handlebars.js"></script>
     <script src="/vendor/scripts/marked.js"></script>
+    <script src="/vendor/scripts/page.js"></script>
     <script src="scripts/portfolio.js"></script>
     <script src="scripts/portfolioView1.js"></script>
-    <script>
-      Project.fetchAll(projectView.initIndexPage);
-    </script>
+    <script src="/scripts/portfolioController.js"></script>
+    <script src="/scripts/aboutController.js"></script>
+    <script src="/scripts/statsController.js"></script>
+    <script src="/scripts/routes.js"></script>
   </body>
 </html>
