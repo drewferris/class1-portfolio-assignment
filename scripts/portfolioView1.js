@@ -2,13 +2,14 @@
 
   var projectView = {};
 
-  projectView.populateFilters = function()
-  {
+  projectView.populateFilters = function() {
     $('article').each(function() {
       if (!$(this).hasClass('template')) {
         var val = $(this).find('address').text();
         var optionTag = '<option value="' + val + '">' + val + '</option>';
-        $('#author-filter').append(optionTag);
+        if ($('#author-filter option[value="' + val + '"]').length === 0) {
+          $('#author-filter').append(optionTag);
+        }
 
         val = $(this).attr('data-category');
         optionTag = '<option value="' + val + '">' + val + '</option>';
@@ -19,18 +20,44 @@
     });
   };
 
-  projectView.handleFilter = function(a) {
-    $('#' + a + '-filter').on('change', function() {
+  projectView.handleCategoryFilter = function() {
+    $('#category-filter').on('change', function() {
       if ($(this).val()) {
         $('article').hide();
-        $('article').filter('article[data-' + a + '= "' + $(this).val() + '"]').fadeIn(600);
+        $('article[data-category="' + $(this).val() + '"]').fadeIn();
       } else {
         $('article').fadeIn();
         $('article.template').hide();
       }
-      $('#' + a + '-filter').val('');
+      $('#author-filter').val('');
     });
   };
+
+  projectView.handleAuthorFilter = function() {
+    $('#author-filter').on('change', function() {
+      if ($(this).val()) {
+        $('article').hide();
+        $('article[data-author="' + $(this).val() + '"]').fadeIn();
+      } else {
+        $('article').fadeIn();
+        $('article.template').hide();
+      }
+      $('#category-filter').val('');
+    });
+  };
+
+  // projectView.handleFilter = function(a) {
+  //   $('#' + a + '-filter').on('change', function() {
+  //     if ($(this).val()) {
+  //       $('article').hide();
+  //       $('article[data-' + a + '= "' + $(this).val() + '"]').fadeIn();
+  //     } else {
+  //       $('article').fadeIn();
+  //       $('article.template').hide();
+  //     }
+  //     $('#' + a + '-filter').val('');
+  //   });
+  // };
 
   // projectView.handleMainNav = function() {
   //   $('.main-nav').on('click', '.tab', function() {
@@ -66,8 +93,10 @@
       });
     };
     projectView.populateFilters();
-    projectView.handleFilter('author');
-    projectView.handleFilter('category');
+    projectView.handleAuthorFilter();
+    projectView.handleCategoryFilter();
+    // projectView.handleFilter('author');
+    // projectView.handleFilter('category');
     // projectView.handleMainNav();
     projectView.setTeasers();
 
