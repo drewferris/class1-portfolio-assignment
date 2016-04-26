@@ -4,18 +4,22 @@
   repos.all = [];
 
   repos.requestRepos = function(callback) {
-    $.ajax({
-      url: 'https://api.github.com/users/drewferris/repos' +
+    $.getJSON(
+       'https://api.github.com/users/drewferris/repos' +
         '?per_page=10' +
         '&sort=updated',
-      type: 'GET',
-      headers: {'Authorization':'token ' + githubToken},
-      success: function(data){
+      // type: 'GET',
+      // headers: {'Authorization':'token ' + githubToken},
+      // success:
+      function(data){
         repos.all = data;
         callback(data);
       }
-    });
+    );
   };
+
+
+
 
   repos.with = function(attr) {
     return repos.all.filter(function(repo) {
