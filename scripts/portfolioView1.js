@@ -118,7 +118,7 @@
     $('#project-json').val(JSON.stringify(project) + ',');
   };
 
-  projectView.initIndexPage = function() {
+  projectView.initIndexPage = function() { 
     if($('#projects section').length === 0) {
       Project.all.forEach(function(a) {
         $('#projects').append(a.toHtml());
@@ -131,12 +131,16 @@
     // projectView.handleFilter('category');
     // projectView.handleMainNav();
     projectView.setTeasers();
+  };
+
+  projectView.initStatsPage = function() {
 
     var template = Handlebars.compile($('#author-template').text());
 
-    if($('.author-stats section').length === 0) {
+    if($('#author-stats li').length === 0) {
+
       Project.numProjectsByAuthor().forEach(function(stat) {
-        $('.author-stats').append(template(stat));
+        $('#author-stats').append(template(stat));
       });
     };
 

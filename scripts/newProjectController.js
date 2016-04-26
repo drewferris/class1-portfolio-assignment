@@ -1,6 +1,7 @@
 (function(module) {
   var newProjectController = {};
 
+
   newProjectController.index = function() {
     Project.fetchAll(projectView.initNewProjectPage);
 
