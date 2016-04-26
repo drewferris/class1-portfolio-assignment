@@ -31,7 +31,19 @@
     <script id="author-template" type="text/x-handlebars-template">
       <li><strong>{{name}}</stron>:
         {{numProjects}} project(s) launched</li>
-      </script>
+    </script>
+    <script id="repo-template" type="text/x-handlebars-template">
+      <li>
+        <a href="{{html_url}}" target="_blank"><h3>{{name}}</h3></a>
+        <p>Description: {{description}}</p>
+        <p>Language: {{language}}</p>
+        <p>Created: {{created_at}}</p>
+        <p>Last update: {{updated_at}}</p>
+        {{#if watchers_count}}
+          <p>{{watchers_count}} watching this repo</p>
+        {{/if}}
+      </li>
+    </script>
   </head>
   <body>
       <header class="site-header clear-fix">
@@ -81,6 +93,12 @@
               <li>Russian Language</li>
               <li>SHANNON</li>
             </ul>
+            <section>
+              <h1>Check out my Projects on GitHub:</h1>
+              <ul>
+                <li>Coding Projects Go Here</li>
+              </ul>
+            </section>
         </section>
         <section id="footer-stats"
         class="tab-content">
@@ -130,16 +148,28 @@
         &copy; Drew Ferris
       </section>
     </footer>
+
+    <!--Vendor files: -->
     <script src="/vendor/scripts/jquery-2.1.4.js"></script>
     <script src="/vendor/scripts/handlebars.js"></script>
     <script src="/vendor/scripts/marked.js"></script>
     <script src="/vendor/scripts/page.js"></script>
-    <script src="scripts/portfolio.js"></script>
-    <script src="scripts/portfolioView1.js"></script>
-    <script src="/scripts/portfolioController.js"></script>
-    <script src="/scripts/aboutController.js"></script>
-    <script src="/scripts/statsController.js"></script>
-    <script src="/scripts/newProjectController.js"></script>
+
+    <!--Model files: -->
+    <script src="/scripts/model/githubToken.js"></script>
+    <script src="/scripts/model/portfolio.js"></script>
+    <script src="/scripts/model/repo.js"></script>
+
+    <!--View files: -->
+    <script src="/scripts/view/portfolioView1.js"></script>
+    <script src="/scripts/view/repoView.js"></script>
+
+    <!--Controller files: -->
+    <script src="/scripts/controller/portfolioController.js"></script>
+    <script src="/scripts/controller/aboutController.js"></script>
+    <script src="/scripts/controller/statsController.js"></script>
+    <script src="/scripts/controller/newProjectController.js"></script>
+
     <script src="/scripts/routes.js"></script>
   </body>
 </html>
