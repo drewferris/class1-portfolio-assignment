@@ -52,6 +52,7 @@
             <li class="tab" data-content="projects"><a href="/" class="icon-home">Home</a></li>
             <li class="tab" data-content="about"><a href="/about" class="icon-address-book">About</a></li>
             <li class="tab" data-content="stats"><a href="/stats" class="icon-stats-bars">Stats</a></li>
+            <li class="tab" data-content="new-project"><a href="/newProject" class="icon-home">New Project</a></li>
           </ul>
         </nav>
       </header>
@@ -81,7 +82,8 @@
               <li>SHANNON</li>
             </ul>
         </section>
-        <section id="footer-stats">
+        <section id="footer-stats"
+        class="tab-content">
           <h1 class="stat-header">Project Stats</h1>
             <dt>Total Projects:</dt> <dd class="projects"></dd>
             <dt>Total Categories:</dt> <dd class="categories"></dd>
@@ -89,6 +91,36 @@
             <p><em>Details on the projects makers, and how many projects they contributed...</em>
               <ul class="author-stats">
               </ul>
+        </section>
+        <section id="write" class="tab-content-again">
+          <h1>New Project</h1>
+          <form action="#" id="new-form">
+            <label>
+              <input type="text" id="project-title"
+              placeholder="Project title" required>
+            </label>
+            <textarea id="project-body" rows="8" cols="40" required></textarea>
+            <label>
+              <input type="text" id="project-author"
+              placeholder="Author Name" required>
+            </label>
+            <label>
+              <input type="text" id="project-link" placeholder="Project link" required>
+            </label>
+            <label>
+              <input type="text" id="project-category" placeholder="Category" required>
+            </label>
+            <label>
+              <input type="checkbox"
+              id="project-launched">Launched
+            </label>
+          </form>
+        </section>
+        <section id="project-export">
+          <label id="export-field" for="project-json">
+            <input type="text" readonly id="project-json">
+            When finalized, copy the above JSON, and paste into projects.JSON
+          </label>
         </section>
       </main>
     <footer>
@@ -105,6 +137,7 @@
     <script src="/scripts/portfolioController.js"></script>
     <script src="/scripts/aboutController.js"></script>
     <script src="/scripts/statsController.js"></script>
+    <script src="/scripts/newProjectController.js"></script>
     <script src="/scripts/routes.js"></script>
   </body>
 </html>

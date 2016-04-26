@@ -86,6 +86,38 @@
 
   };
 
+  projectView.initNewProjectPage = function() {
+    $('.tab-content-again').show();
+    $('#export-field').hide();
+    $('#project-json').on('focus', function() {
+      this.select();
+    });
+
+    $('#new-form').on('change', 'input, textarea', projectView.create);
+  };
+
+  projectView.create = function() {
+    var project;
+    $('#projects').empty();
+    project = new Project({
+      title: $('#project-title').val(),
+      author: $('#project-author').val(),
+      projectLink: $('#project-link').val(),
+      category: $('#project-category').val(),
+      body: $('#project-body').val(),
+      launchedOn: $('#project-launched:checked').length ? util.today() : null
+    });
+
+    $('#projects').append(project.toHtml());
+
+    $('pre code').each(function(i, block) {
+      hljs.highlightBlock(block);
+    });
+
+    $('#export-field').show();
+    $('#project-json').val(JSON.stringify(project) + ',');
+  };
+
   projectView.initIndexPage = function() {
     if($('#projects section').length === 0) {
       Project.all.forEach(function(a) {
@@ -102,9 +134,11 @@
 
     var template = Handlebars.compile($('#author-template').text());
 
-    Project.numProjectsByAuthor().forEach(function(stat) {
-      $('.author-stats').append(template(stat));
-    });
+    if($('.author-stats section').length === 0) {
+      Project.numProjectsByAuthor().forEach(function(stat) {
+        $('.author-stats').append(template(stat));
+      });
+    };
 
     $('#footer-stats .projects').text(Project.all.length);
     $('#footer-stats .categories').text(Project.numCategoriesAll);

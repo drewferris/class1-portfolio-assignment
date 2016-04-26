@@ -24,6 +24,19 @@
   margin-bottom: 5px;
 }
 
+#write {
+  background: #89C5E8;
+  border: 3px solid #51A4CC;
+  margin-top: 5px;
+  text-align: center;
+  width: 70%;
+  margin-left: 15%;
+  margin-right: 15%;
+  margin-bottom: 5px;
+  display: block;
+}
+
+
 
 .author-stats, #about li {
   list-style: none;
