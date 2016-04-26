@@ -26,7 +26,7 @@
     });
   };
 
-  Project.fetchAll = function(callback) {
+  Project.fetchAll = function(callback) { 
     if (localStorage.projects) {
       $.ajax({
         type: 'HEAD',
@@ -35,7 +35,7 @@
           var eTag = xhr.getResponseHeader('ETag');
           if(!localStorage.eTag || eTag !== localStorage.eTag) {
             localStorage.eTag = eTag;
-            Project.getAll(projectView.initIndexPage);
+            Project.getAll(callback);
           } else {
             Project.loadAll(JSON.parse(localStorage.projects));
             callback();
@@ -43,7 +43,7 @@
         }
       });
     } else {
-      Project.getAll(projectView.initIndexPage);
+      Project.getAll(callback);
     }
   };
 
