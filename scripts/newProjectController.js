@@ -6,7 +6,7 @@
     Project.fetchAll(projectView.initNewProjectPage);
 
     $('main > section').hide();
-    $('#write #project-export').show();
+    $('#write').show();
   };
 
   module.newProjectController = newProjectController;

@@ -98,7 +98,7 @@
 
   projectView.create = function() {
     var project;
-    $('#projects').empty();
+    $('#new-projects').empty();
     project = new Project({
       title: $('#project-title').val(),
       author: $('#project-author').val(),
@@ -108,7 +108,7 @@
       launchedOn: $('#project-launched:checked').length ? util.today() : null
     });
 
-    $('#projects').append(project.toHtml());
+    $('#new-projects').append(project.toHtml());
 
     $('pre code').each(function(i, block) {
       hljs.highlightBlock(block);
@@ -118,7 +118,7 @@
     $('#project-json').val(JSON.stringify(project) + ',');
   };
 
-  projectView.initIndexPage = function() { 
+  projectView.initIndexPage = function() {
     if($('#projects section').length === 0) {
       Project.all.forEach(function(a) {
         $('#projects').append(a.toHtml());
