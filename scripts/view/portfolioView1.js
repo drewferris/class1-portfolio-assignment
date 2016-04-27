@@ -113,7 +113,6 @@
     $('pre code').each(function(i, block) {
       hljs.highlightBlock(block);
     });
-
     $('#export-field').show();
     $('#project-json').val(JSON.stringify(project) + ',');
   };
