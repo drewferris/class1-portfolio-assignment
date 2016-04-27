@@ -4,21 +4,14 @@
   repos.all = [];
 
   repos.requestRepos = function(callback) {
-    $.getJSON(
-       'https://api.github.com/users/drewferris/repos' +
+    $.get('/github/users/drewferris/repos' +
         '?per_page=10' +
-        '&sort=updated',
-      // type: 'GET',
-      // headers: {'Authorization':'token ' + githubToken},
-      // success:
-      function(data){
+        '&sort=updated')
+      .done(function(data) {
         repos.all = data;
-        callback(data);
-      }
-    );
+      })
+      .done(callback);
   };
-
-
 
 
   repos.with = function(attr) {
