@@ -4,7 +4,7 @@
   var ui = function() {
     var $about = $('#about');
 
-    $about.find('section section ul').empty();
+    $about.find('section ul').empty();
     $about.show().siblings().hide();
   };
 
@@ -12,6 +12,7 @@
 
   repoView.index = function() {
     ui();
+
     $('#about section ul').append(repos.with('name').map(render));
   };
 
