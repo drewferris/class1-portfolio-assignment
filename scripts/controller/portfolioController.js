@@ -2,9 +2,8 @@
   var portfolioController = {};
 
   Project.createTable();
-  debugger;
-  portfolioController.index = function(ctx, next) {
 
+  portfolioController.index = function(ctx, next) {
     projectView.index(ctx.projects);
   };
 

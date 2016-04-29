@@ -3,7 +3,7 @@
   var projectView = {};
 
   var render = function(project) {
-    var template = Handlebars.compile($('#project-template').text());
+    var template = Handlebars.compile($('#projects-template').text());
 
     project.daysAgo = parseInt((new Date() - new Date(project.launchedOn)) / 60 / 60 / 24 / 1000);
     project.launchStatus = project.launchedOn ? 'launched ' + project.daysAgo + ' days ago' : '(draft)';
