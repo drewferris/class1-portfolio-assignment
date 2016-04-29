@@ -5,7 +5,7 @@
 
   repos.requestRepos = function(callback) {
     $.get('/github/users/drewferris/repos' +
-        '?per_page=10' +
+        '?per_page=100' +
         '&sort=updated')
       .done(function(data) {
         repos.all = data;

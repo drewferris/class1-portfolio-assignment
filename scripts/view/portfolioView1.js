@@ -2,49 +2,68 @@
 
   var projectView = {};
 
+  var render = function(project) {
+    var template = Handlebars.compile($('#project-template').text());
+
+    project.daysAgo = parseInt((new Date() - new Date(project.launchedOn)) / 60 / 60 / 24 / 1000);
+    project.launchStatus = project.launchedOn ? 'launched ' + project.daysAgo + ' days ago' : '(draft)';
+    project.body = marked(project.body);
+
+    return template(project);
+  };
+
   projectView.populateFilters = function() {
-    $('article').each(function() {
-      if (!$(this).hasClass('template')) {
-        var val = $(this).find('address').text();
-        var optionTag = '<option value="' + val + '">' + val + '</option>';
-        if ($('#author-filter option[value="' + val + '"]').length === 0) {
-          $('#author-filter').append(optionTag);
-        }
+    var options,
+      template = Handlebars.compile($('#option-template').text());
 
-        val = $(this).attr('data-category');
-        optionTag = '<option value="' + val + '">' + val + '</option>';
-        if ($('#category-filter option[value="' + val + '"]').length === 0) {
-          $('#category-filter').append(optionTag);
-        }
-      }
+    options = Project.allAuthors().map(function(author) { return template({val: author}); });
+    if ($('#author-filter option').length < 2) {
+      $('#author-filter').append(options);
+    };
+
+    Project.allCategories(function(rows) {
+      if ($('#category-filter option').length < 2) {
+        $('#category-filter').append(
+          rows.map(function(row) {
+            return template({val: row.category});
+          })
+        );
+      };
     });
   };
 
-  projectView.handleCategoryFilter = function() {
-    $('#category-filter').on('change', function() {
-      if ($(this).val()) {
-        $('article').hide();
-        $('article[data-category="' + $(this).val() + '"]').fadeIn();
-      } else {
-        $('article').fadeIn();
-        $('article.template').hide();
-      }
-      $('#author-filter').val('');
+  projectView.handleFilters = function() {
+    $('#filters').one('change', 'select', function() {
+      resource = this.id.replace('-filter', '');
+      page('/' + resource + '/' + $(this).val().replace(/\W+/g, '+'));
     });
   };
 
-  projectView.handleAuthorFilter = function() {
-    $('#author-filter').on('change', function() {
-      if ($(this).val()) {
-        $('article').hide();
-        $('article[data-author="' + $(this).val() + '"]').fadeIn();
-      } else {
-        $('article').fadeIn();
-        $('article.template').hide();
-      }
-      $('#category-filter').val('');
-    });
-  };
+  // projectView.handleCategoryFilter = function() {
+  //   $('#category-filter').on('change', function() {
+  //     if ($(this).val()) {
+  //       $('article').hide();
+  //       $('article[data-category="' + $(this).val() + '"]').fadeIn();
+  //     } else {
+  //       $('article').fadeIn();
+  //       $('article.template').hide();
+  //     }
+  //     $('#author-filter').val('');
+  //   });
+  // };
+  //
+  // projectView.handleAuthorFilter = function() {
+  //   $('#author-filter').on('change', function() {
+  //     if ($(this).val()) {
+  //       $('article').hide();
+  //       $('article[data-author="' + $(this).val() + '"]').fadeIn();
+  //     } else {
+  //       $('article').fadeIn();
+  //       $('article.template').hide();
+  //     }
+  //     $('#category-filter').val('');
+  //   });
+  // };
 
   // projectView.handleFilter = function(a) {
   //   $('#' + a + '-filter').on('change', function() {
@@ -67,24 +86,24 @@
   //   $('.main-nav .tab:first').click();
   // };
 
-  projectView.setTeasers = function() {
-    var $readMoreParagraphs = $('.project-body *:nth-of-type(n+2)');
-    $readMoreParagraphs.hide();
-    $('a.read-less').hide();
-    $('a.read-on').on('click', function(e) {
-      e.preventDefault();
-      $(this).prev().children().fadeIn();
-      $(this).hide();
-      $(this).next().show();
-    });
-    $('a.read-less').on('click', function(e) {
-      e.preventDefault();
-      $readMoreParagraphs.fadeOut();
-      $(this).prev().show();
-      $(this).hide();
-    });
-
-  };
+  // projectView.setTeasers = function() {
+  //   var $readMoreParagraphs = $('.project-body *:nth-of-type(n+2)');
+  //   $readMoreParagraphs.hide();
+  //   $('a.read-less').hide();
+  //   $('a.read-on').on('click', function(e) {
+  //     e.preventDefault();
+  //     $(this).prev().children().fadeIn();
+  //     $(this).hide();
+  //     $(this).next().show();
+  //   });
+  //   $('a.read-less').on('click', function(e) {
+  //     e.preventDefault();
+  //     $readMoreParagraphs.fadeOut();
+  //     $(this).prev().show();
+  //     $(this).hide();
+  //   });
+  //
+  // };
 
   projectView.initNewProjectPage = function() {
     $('.tab-content-again').show();
@@ -117,19 +136,20 @@
     $('#project-json').val(JSON.stringify(project) + ',');
   };
 
-  projectView.initIndexPage = function() {
-    if($('#projects section').length === 0) {
-      Project.all.forEach(function(a) {
-        $('#projects').append(a.toHtml());
-      });
-    };
+  projectView.index = function(projects) {
+    $('#projects').show().siblings().hide();
+
+    $('#projects article').remove();
+    projects.forEach(function(a) {
+      $('#projects').append(render(a));
+    });
+
     projectView.populateFilters();
-    projectView.handleAuthorFilter();
-    projectView.handleCategoryFilter();
-    // projectView.handleFilter('author');
-    // projectView.handleFilter('category');
-    // projectView.handleMainNav();
-    projectView.setTeasers();
+    projectView.handleFilters();
+
+    if ($('#projects article').length > 1) {
+      $('.project-body *:nth-of-type(n+2)').hide();
+    }
   };
 
   projectView.initStatsPage = function() {
