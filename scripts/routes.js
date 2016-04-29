@@ -10,6 +10,6 @@ page('/author', '/');
 
 page('/author/:authorName', portfolioController.loadByAuthor, portfolioController.index);
 
-page('/category/:categoryrName', portfolioController.loadByCategory, portfolioController.index);
+page('/category/:categoryName', portfolioController.loadByCategory, portfolioController.index);
 
 page();
