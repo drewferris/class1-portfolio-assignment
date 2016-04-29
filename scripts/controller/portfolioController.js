@@ -13,7 +13,7 @@
       next();
     };
 
-    Project.findWhere('id', ctx.params.id, projectData);
+    Project.findWhere('id', ctx.params.id, portfolioData);
   };
 
   portfolioController.loadByAuthor = function(ctx, next) {
@@ -31,7 +31,7 @@
       next();
     };
 
-    Project.findWhere('author', ctx.params.categoryName.replace('+', ' '), categoryData);
+    Project.findWhere('category', ctx.params.categoryName.replace('+', ' '), categoryData);
   };
 
 
